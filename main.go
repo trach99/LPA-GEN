@@ -52,7 +52,7 @@ func main() {
 		iccid1 := record1[findColumnIndex(records[0], "ICCID")]
 
 		// Generate QR code image as a byte slice
-		qrCode1, err := qr.Encode(text1, qr.Medium, 200)
+		qrCode1, err := qr.Encode(text1, qr.Medium, 150)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -67,7 +67,7 @@ func main() {
 			iccid2 := record2[findColumnIndex(records[0], "ICCID")]
 
 			// Generate QR code image as a byte slice
-			qrCode2, err := qr.Encode(text2, qr.Medium, 200)
+			qrCode2, err := qr.Encode(text2, qr.Medium, 150)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -82,7 +82,7 @@ func main() {
 				iccid3 := record3[findColumnIndex(records[0], "ICCID")]
 
 				// Generate QR code image as a byte slice
-				qrCode3, err := qr.Encode(text3, qr.Medium, 200)
+				qrCode3, err := qr.Encode(text3, qr.Medium, 150)
 				if err != nil {
 					log.Fatal(err)
 				}
@@ -97,7 +97,7 @@ func main() {
 					iccid4 := record4[findColumnIndex(records[0], "ICCID")]
 
 					// Generate QR code image as a byte slice
-					qrCode4, err := qr.Encode(text4, qr.Medium, 200)
+					qrCode4, err := qr.Encode(text4, qr.Medium, 150)
 					if err != nil {
 						log.Fatal(err)
 					}
@@ -112,7 +112,7 @@ func main() {
 						iccid5 := record5[findColumnIndex(records[0], "ICCID")]
 
 						// Generate QR code image as a byte slice
-						qrCode5, err := qr.Encode(text5, qr.Medium, 200)
+						qrCode5, err := qr.Encode(text5, qr.Medium, 150)
 						if err != nil {
 							log.Fatal(err)
 						}
@@ -126,7 +126,7 @@ func main() {
 							iccid6 := record6[findColumnIndex(records[0], "ICCID")]
 
 							// Generate QR code image as a byte slice
-							qrCode6, err := qr.Encode(text6, qr.Medium, 200)
+							qrCode6, err := qr.Encode(text6, qr.Medium, 150)
 							if err != nil {
 								log.Fatal(err)
 							}
@@ -140,7 +140,7 @@ func main() {
 								iccid7 := record7[findColumnIndex(records[0], "ICCID")]
 
 								// Generate QR code image as a byte slice
-								qrCode7, err := qr.Encode(text7, qr.Medium, 200)
+								qrCode7, err := qr.Encode(text7, qr.Medium, 150)
 								if err != nil {
 									log.Fatal(err)
 								}
@@ -154,7 +154,7 @@ func main() {
 									iccid8 := record8[findColumnIndex(records[0], "ICCID")]
 
 									// Generate QR code image as a byte slice
-									qrCode8, err := qr.Encode(text8, qr.Medium, 200)
+									qrCode8, err := qr.Encode(text8, qr.Medium, 150)
 									if err != nil {
 										log.Fatal(err)
 									}
@@ -168,7 +168,7 @@ func main() {
 										iccid9 := record9[findColumnIndex(records[0], "ICCID")]
 
 										// Generate QR code image as a byte slice
-										qrCode9, err := qr.Encode(text9, qr.Medium, 200)
+										qrCode9, err := qr.Encode(text9, qr.Medium, 150)
 										if err != nil {
 											log.Fatal(err)
 										}
@@ -182,7 +182,7 @@ func main() {
 											iccid10 := record10[findColumnIndex(records[0], "ICCID")]
 
 											// Generate QR code image as a byte slice
-											qrCode10, err := qr.Encode(text10, qr.Medium, 200)
+											qrCode10, err := qr.Encode(text10, qr.Medium, 150)
 											if err != nil {
 												log.Fatal(err)
 											}
@@ -204,83 +204,83 @@ func main() {
 
 											// Add first QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-											pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-											pdf.SetFont("Arial", "", 9)
-											pdf.Text(10, 75, text1)
-											pdf.Text(10, 82, "ICCID: "+iccid1)
+											pdf.SetFont("Arial", "", 8)
+											pdf.Text(20, 55, text1)
+											pdf.Text(20, 62, "ICCID: "+iccid1)
 
 											// Add second QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-											pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-											pdf.Text(110, 75, text2)
-											pdf.Text(110, 82, "ICCID: "+iccid2)
+											pdf.Text(115, 55, text2)
+											pdf.Text(115, 62, "ICCID: "+iccid2)
 
 											// Add third QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-											pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-											pdf.Text(10, 151, text3)
-											pdf.Text(10, 158, "ICCID: "+iccid3)
+											pdf.Text(20, 111, text3)
+											pdf.Text(20, 118, "ICCID: "+iccid3)
 											// Add fourth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text4, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader4)
-											pdf.ImageOptions(text4, 120, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text4, 125, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the fourth 'Lpa' and 'ICCID' strings below the fourth QR code
-											pdf.Text(110, 151, text4)
-											pdf.Text(110, 158, "ICCID: "+iccid4)
+											pdf.Text(115, 111, text4)
+											pdf.Text(115, 118, "ICCID: "+iccid4)
 
 											// Add fifth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text5, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader5)
-											pdf.ImageOptions(text5, 20, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text5, 30, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the fifth 'Lpa' and 'ICCID' strings below the fifth QR code
-											pdf.Text(10, 227, text5)
-											pdf.Text(10, 234, "ICCID: "+iccid5)
+											pdf.Text(20, 167, text5)
+											pdf.Text(20, 174, "ICCID: "+iccid5)
 
 											// Add sixth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text6, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader6)
-											pdf.ImageOptions(text6, 120, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text6, 125, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the sixth 'Lpa' and 'ICCID' strings below the sixth QR code
-											pdf.Text(110, 227, text6)
-											pdf.Text(110, 234, "ICCID: "+iccid6)
+											pdf.Text(115, 167, text6)
+											pdf.Text(115, 174, "ICCID: "+iccid6)
 
 											// Add seventh QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text7, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader7)
-											pdf.ImageOptions(text7, 20, 242, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text7, 30, 182, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the seventh 'Lpa' and 'ICCID' strings below the seventh QR code
-											pdf.Text(10, 303, text7)
-											pdf.Text(10, 310, "ICCID: "+iccid7)
+											pdf.Text(20, 223, text7)
+											pdf.Text(20, 230, "ICCID: "+iccid7)
 
 											// Add eighth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text8, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader8)
-											pdf.ImageOptions(text8, 120, 242, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text8, 125, 182, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the eighth 'Lpa' and 'ICCID' strings below the eighth QR code
-											pdf.Text(110, 303, text8)
-											pdf.Text(110, 310, "ICCID: "+iccid8)
+											pdf.Text(115, 223, text8)
+											pdf.Text(115, 230, "ICCID: "+iccid8)
 
 											// Add ninth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text9, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader9)
-											pdf.ImageOptions(text9, 20, 318, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text9, 30, 238, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the ninth 'Lpa' and 'ICCID' strings below the ninth QR code
-											pdf.Text(10, 379, text9)
-											pdf.Text(10, 386, "ICCID: "+iccid9)
+											pdf.Text(20, 279, text9)
+											pdf.Text(20, 286, "ICCID: "+iccid9)
 
 											// Add tenth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text10, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader10)
-											pdf.ImageOptions(text10, 120, 318, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text10, 125, 238, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the tenth 'Lpa' and 'ICCID' strings below the tenth QR code
-											pdf.Text(110, 379, text10)
-											pdf.Text(110, 386, "ICCID: "+iccid10)
+											pdf.Text(115, 279, text10)
+											pdf.Text(115, 286, "ICCID: "+iccid10)
 
 										} else {
 											// Only nine records left, add them to the PDF
@@ -298,72 +298,75 @@ func main() {
 
 											// Add first QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-											pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-											pdf.SetFont("Arial", "", 9)
-											pdf.Text(10, 75, text1)
-											pdf.Text(10, 82, "ICCID: "+iccid1)
+											pdf.SetFont("Arial", "", 8)
+											pdf.Text(20, 55, text1)
+											pdf.Text(20, 62, "ICCID: "+iccid1)
 
 											// Add second QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-											pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-											pdf.Text(110, 75, text2)
-											pdf.Text(110, 82, "ICCID: "+iccid2)
+											pdf.Text(115, 55, text2)
+											pdf.Text(115, 62, "ICCID: "+iccid2)
 
 											// Add third QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-											pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-											pdf.Text(10, 151, text3)
-											pdf.Text(10, 158, "ICCID: "+iccid3)
-
+											pdf.Text(20, 111, text3)
+											pdf.Text(20, 118, "ICCID: "+iccid3)
 											// Add fourth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text4, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader4)
-											pdf.ImageOptions(text4, 120, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text4, 125, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the fourth 'Lpa' and 'ICCID' strings below the fourth QR code
-											pdf.Text(110, 151, text4)
-											pdf.Text(110, 158, "ICCID: "+iccid4)
+											pdf.Text(115, 111, text4)
+											pdf.Text(115, 118, "ICCID: "+iccid4)
 
 											// Add fifth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text5, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader5)
-											pdf.ImageOptions(text5, 20, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text5, 30, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the fifth 'Lpa' and 'ICCID' strings below the fifth QR code
-											pdf.Text(10, 227, text5)
-											pdf.Text(10, 234, "ICCID: "+iccid5)
+											pdf.Text(20, 167, text5)
+											pdf.Text(20, 174, "ICCID: "+iccid5)
 
 											// Add sixth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text6, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader6)
-											pdf.ImageOptions(text6, 120, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text6, 125, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the sixth 'Lpa' and 'ICCID' strings below the sixth QR code
-											pdf.Text(110, 227, text6)
-											pdf.Text(110, 234, "ICCID: "+iccid6)
+											pdf.Text(115, 167, text6)
+											pdf.Text(115, 174, "ICCID: "+iccid6)
 
 											// Add seventh QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text7, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader7)
-											pdf.ImageOptions(text7, 20, 242, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text7, 30, 182, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the seventh 'Lpa' and 'ICCID' strings below the seventh QR code
-											pdf.Text(10, 303, text7)
-											pdf.Text(10, 310, "ICCID: "+iccid7)
+											pdf.Text(20, 223, text7)
+											pdf.Text(20, 230, "ICCID: "+iccid7)
+
+											// Add eighth QR code image to the PDF
+											pdf.RegisterImageOptionsReader(text8, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader8)
+											pdf.ImageOptions(text8, 125, 182, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the eighth 'Lpa' and 'ICCID' strings below the eighth QR code
-											pdf.Text(110, 303, text8)
-											pdf.Text(110, 310, "ICCID: "+iccid8)
+											pdf.Text(115, 223, text8)
+											pdf.Text(115, 230, "ICCID: "+iccid8)
 
 											// Add ninth QR code image to the PDF
 											pdf.RegisterImageOptionsReader(text9, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader9)
-											pdf.ImageOptions(text9, 20, 318, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+											pdf.ImageOptions(text9, 30, 238, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 											// Print the ninth 'Lpa' and 'ICCID' strings below the ninth QR code
-											pdf.Text(10, 379, text9)
-											pdf.Text(10, 386, "ICCID: "+iccid9)
+											pdf.Text(20, 279, text9)
+											pdf.Text(20, 286, "ICCID: "+iccid9)
 
 										}
 									} else {
@@ -382,64 +385,67 @@ func main() {
 
 										// Add first QR code image to the PDF
 										pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-										pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+										pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-										pdf.SetFont("Arial", "", 9)
-										pdf.Text(10, 75, text1)
-										pdf.Text(10, 82, "ICCID: "+iccid1)
+										pdf.SetFont("Arial", "", 8)
+										pdf.Text(20, 55, text1)
+										pdf.Text(20, 62, "ICCID: "+iccid1)
 
 										// Add second QR code image to the PDF
 										pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-										pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+										pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-										pdf.Text(110, 75, text2)
-										pdf.Text(110, 82, "ICCID: "+iccid2)
+										pdf.Text(115, 55, text2)
+										pdf.Text(115, 62, "ICCID: "+iccid2)
 
 										// Add third QR code image to the PDF
 										pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-										pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+										pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-										pdf.Text(10, 151, text3)
-										pdf.Text(10, 158, "ICCID: "+iccid3)
-
+										pdf.Text(20, 111, text3)
+										pdf.Text(20, 118, "ICCID: "+iccid3)
 										// Add fourth QR code image to the PDF
 										pdf.RegisterImageOptionsReader(text4, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader4)
-										pdf.ImageOptions(text4, 120, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+										pdf.ImageOptions(text4, 125, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the fourth 'Lpa' and 'ICCID' strings below the fourth QR code
-										pdf.Text(110, 151, text4)
-										pdf.Text(110, 158, "ICCID: "+iccid4)
+										pdf.Text(115, 111, text4)
+										pdf.Text(115, 118, "ICCID: "+iccid4)
 
 										// Add fifth QR code image to the PDF
 										pdf.RegisterImageOptionsReader(text5, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader5)
-										pdf.ImageOptions(text5, 20, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+										pdf.ImageOptions(text5, 30, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the fifth 'Lpa' and 'ICCID' strings below the fifth QR code
-										pdf.Text(10, 227, text5)
-										pdf.Text(10, 234, "ICCID: "+iccid5)
+										pdf.Text(20, 167, text5)
+										pdf.Text(20, 174, "ICCID: "+iccid5)
 
 										// Add sixth QR code image to the PDF
 										pdf.RegisterImageOptionsReader(text6, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader6)
-										pdf.ImageOptions(text6, 120, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+										pdf.ImageOptions(text6, 125, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the sixth 'Lpa' and 'ICCID' strings below the sixth QR code
-										pdf.Text(110, 227, text6)
-										pdf.Text(110, 234, "ICCID: "+iccid6)
+										pdf.Text(115, 167, text6)
+										pdf.Text(115, 174, "ICCID: "+iccid6)
 
 										// Add seventh QR code image to the PDF
 										pdf.RegisterImageOptionsReader(text7, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader7)
-										pdf.ImageOptions(text7, 20, 242, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+										pdf.ImageOptions(text7, 30, 182, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the seventh 'Lpa' and 'ICCID' strings below the seventh QR code
-										pdf.Text(10, 303, text7)
-										pdf.Text(10, 310, "ICCID: "+iccid7)
+										pdf.Text(20, 223, text7)
+										pdf.Text(20, 230, "ICCID: "+iccid7)
+
+										// Add eighth QR code image to the PDF
+										pdf.RegisterImageOptionsReader(text8, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader8)
+										pdf.ImageOptions(text8, 125, 182, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 										// Print the eighth 'Lpa' and 'ICCID' strings below the eighth QR code
-										pdf.Text(110, 303, text8)
-										pdf.Text(110, 310, "ICCID: "+iccid8)
+										pdf.Text(115, 223, text8)
+										pdf.Text(115, 230, "ICCID: "+iccid8)
 									}
 								} else {
 									// Only seven records left, add them to the PDF
@@ -457,60 +463,59 @@ func main() {
 
 									// Add first QR code image to the PDF
 									pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-									pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+									pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 									// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-									pdf.SetFont("Arial", "", 9)
-									pdf.Text(10, 75, text1)
-									pdf.Text(10, 82, "ICCID: "+iccid1)
+									pdf.SetFont("Arial", "", 8)
+									pdf.Text(20, 55, text1)
+									pdf.Text(20, 62, "ICCID: "+iccid1)
 
 									// Add second QR code image to the PDF
 									pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-									pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+									pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 									// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-									pdf.Text(110, 75, text2)
-									pdf.Text(110, 82, "ICCID: "+iccid2)
+									pdf.Text(115, 55, text2)
+									pdf.Text(115, 62, "ICCID: "+iccid2)
 
 									// Add third QR code image to the PDF
 									pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-									pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+									pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 									// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-									pdf.Text(10, 151, text3)
-									pdf.Text(10, 158, "ICCID: "+iccid3)
-
+									pdf.Text(20, 111, text3)
+									pdf.Text(20, 118, "ICCID: "+iccid3)
 									// Add fourth QR code image to the PDF
 									pdf.RegisterImageOptionsReader(text4, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader4)
-									pdf.ImageOptions(text4, 120, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+									pdf.ImageOptions(text4, 125, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 									// Print the fourth 'Lpa' and 'ICCID' strings below the fourth QR code
-									pdf.Text(110, 151, text4)
-									pdf.Text(110, 158, "ICCID: "+iccid4)
+									pdf.Text(115, 111, text4)
+									pdf.Text(115, 118, "ICCID: "+iccid4)
 
 									// Add fifth QR code image to the PDF
 									pdf.RegisterImageOptionsReader(text5, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader5)
-									pdf.ImageOptions(text5, 20, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+									pdf.ImageOptions(text5, 30, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 									// Print the fifth 'Lpa' and 'ICCID' strings below the fifth QR code
-									pdf.Text(10, 227, text5)
-									pdf.Text(10, 234, "ICCID: "+iccid5)
+									pdf.Text(20, 167, text5)
+									pdf.Text(20, 174, "ICCID: "+iccid5)
 
 									// Add sixth QR code image to the PDF
 									pdf.RegisterImageOptionsReader(text6, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader6)
-									pdf.ImageOptions(text6, 120, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+									pdf.ImageOptions(text6, 125, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 									// Print the sixth 'Lpa' and 'ICCID' strings below the sixth QR code
-									pdf.Text(110, 227, text6)
-									pdf.Text(110, 234, "ICCID: "+iccid6)
+									pdf.Text(115, 167, text6)
+									pdf.Text(115, 174, "ICCID: "+iccid6)
 
 									// Add seventh QR code image to the PDF
 									pdf.RegisterImageOptionsReader(text7, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader7)
-									pdf.ImageOptions(text7, 20, 242, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+									pdf.ImageOptions(text7, 30, 182, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 									// Print the seventh 'Lpa' and 'ICCID' strings below the seventh QR code
-									pdf.Text(10, 303, text7)
-									pdf.Text(10, 310, "ICCID: "+iccid7)
+									pdf.Text(20, 223, text7)
+									pdf.Text(20, 230, "ICCID: "+iccid7)
 								}
 							} else {
 								// Only six records left, add them to the PDF
@@ -528,52 +533,51 @@ func main() {
 
 								// Add first QR code image to the PDF
 								pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-								pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+								pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 								// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-								pdf.SetFont("Arial", "", 9)
-								pdf.Text(10, 75, text1)
-								pdf.Text(10, 82, "ICCID: "+iccid1)
+								pdf.SetFont("Arial", "", 8)
+								pdf.Text(20, 55, text1)
+								pdf.Text(20, 62, "ICCID: "+iccid1)
 
 								// Add second QR code image to the PDF
 								pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-								pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+								pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 								// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-								pdf.Text(110, 75, text2)
-								pdf.Text(110, 82, "ICCID: "+iccid2)
+								pdf.Text(115, 55, text2)
+								pdf.Text(115, 62, "ICCID: "+iccid2)
 
 								// Add third QR code image to the PDF
 								pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-								pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+								pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 								// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-								pdf.Text(10, 151, text3)
-								pdf.Text(10, 158, "ICCID: "+iccid3)
-
+								pdf.Text(20, 111, text3)
+								pdf.Text(20, 118, "ICCID: "+iccid3)
 								// Add fourth QR code image to the PDF
 								pdf.RegisterImageOptionsReader(text4, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader4)
-								pdf.ImageOptions(text4, 120, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+								pdf.ImageOptions(text4, 125, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 								// Print the fourth 'Lpa' and 'ICCID' strings below the fourth QR code
-								pdf.Text(110, 151, text4)
-								pdf.Text(110, 158, "ICCID: "+iccid4)
+								pdf.Text(115, 111, text4)
+								pdf.Text(115, 118, "ICCID: "+iccid4)
 
 								// Add fifth QR code image to the PDF
 								pdf.RegisterImageOptionsReader(text5, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader5)
-								pdf.ImageOptions(text5, 20, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+								pdf.ImageOptions(text5, 30, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 								// Print the fifth 'Lpa' and 'ICCID' strings below the fifth QR code
-								pdf.Text(10, 227, text5)
-								pdf.Text(10, 234, "ICCID: "+iccid5)
+								pdf.Text(20, 167, text5)
+								pdf.Text(20, 174, "ICCID: "+iccid5)
 
 								// Add sixth QR code image to the PDF
 								pdf.RegisterImageOptionsReader(text6, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader6)
-								pdf.ImageOptions(text6, 120, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+								pdf.ImageOptions(text6, 125, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 								// Print the sixth 'Lpa' and 'ICCID' strings below the sixth QR code
-								pdf.Text(110, 227, text6)
-								pdf.Text(110, 234, "ICCID: "+iccid6)
+								pdf.Text(115, 167, text6)
+								pdf.Text(115, 174, "ICCID: "+iccid6)
 							}
 						} else {
 							// Only five records left, add them to the PDF
@@ -591,44 +595,43 @@ func main() {
 
 							// Add first QR code image to the PDF
 							pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-							pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+							pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 							// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-							pdf.SetFont("Arial", "", 9)
-							pdf.Text(10, 75, text1)
-							pdf.Text(10, 82, "ICCID: "+iccid1)
+							pdf.SetFont("Arial", "", 8)
+							pdf.Text(20, 55, text1)
+							pdf.Text(20, 62, "ICCID: "+iccid1)
 
 							// Add second QR code image to the PDF
 							pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-							pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+							pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 							// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-							pdf.Text(110, 75, text2)
-							pdf.Text(110, 82, "ICCID: "+iccid2)
+							pdf.Text(115, 55, text2)
+							pdf.Text(115, 62, "ICCID: "+iccid2)
 
 							// Add third QR code image to the PDF
 							pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-							pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+							pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 							// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-							pdf.Text(10, 151, text3)
-							pdf.Text(10, 158, "ICCID: "+iccid3)
-
+							pdf.Text(20, 111, text3)
+							pdf.Text(20, 118, "ICCID: "+iccid3)
 							// Add fourth QR code image to the PDF
 							pdf.RegisterImageOptionsReader(text4, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader4)
-							pdf.ImageOptions(text4, 120, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+							pdf.ImageOptions(text4, 125, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 							// Print the fourth 'Lpa' and 'ICCID' strings below the fourth QR code
-							pdf.Text(110, 151, text4)
-							pdf.Text(110, 158, "ICCID: "+iccid4)
+							pdf.Text(115, 111, text4)
+							pdf.Text(115, 118, "ICCID: "+iccid4)
 
 							// Add fifth QR code image to the PDF
 							pdf.RegisterImageOptionsReader(text5, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader5)
-							pdf.ImageOptions(text5, 20, 166, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+							pdf.ImageOptions(text5, 30, 126, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 							// Print the fifth 'Lpa' and 'ICCID' strings below the fifth QR code
-							pdf.Text(10, 227, text5)
-							pdf.Text(10, 234, "ICCID: "+iccid5)
+							pdf.Text(20, 167, text5)
+							pdf.Text(20, 174, "ICCID: "+iccid5)
 						}
 					} else {
 						// Only four records left, add them to the PDF
@@ -646,36 +649,35 @@ func main() {
 
 						// Add first QR code image to the PDF
 						pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-						pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+						pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 						// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-						pdf.SetFont("Arial", "", 9)
-						pdf.Text(10, 75, text1)
-						pdf.Text(10, 82, "ICCID: "+iccid1)
+						pdf.SetFont("Arial", "", 8)
+						pdf.Text(20, 55, text1)
+						pdf.Text(20, 62, "ICCID: "+iccid1)
 
 						// Add second QR code image to the PDF
 						pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-						pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+						pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 						// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-						pdf.Text(110, 75, text2)
-						pdf.Text(110, 82, "ICCID: "+iccid2)
+						pdf.Text(115, 55, text2)
+						pdf.Text(115, 62, "ICCID: "+iccid2)
 
 						// Add third QR code image to the PDF
 						pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-						pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+						pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 						// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-						pdf.Text(10, 151, text3)
-						pdf.Text(10, 158, "ICCID: "+iccid3)
-
+						pdf.Text(20, 111, text3)
+						pdf.Text(20, 118, "ICCID: "+iccid3)
 						// Add fourth QR code image to the PDF
 						pdf.RegisterImageOptionsReader(text4, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader4)
-						pdf.ImageOptions(text4, 120, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+						pdf.ImageOptions(text4, 125, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 						// Print the fourth 'Lpa' and 'ICCID' strings below the fourth QR code
-						pdf.Text(110, 151, text4)
-						pdf.Text(110, 158, "ICCID: "+iccid4)
+						pdf.Text(115, 111, text4)
+						pdf.Text(115, 118, "ICCID: "+iccid4)
 
 					}
 				} else {
@@ -694,28 +696,28 @@ func main() {
 
 					// Add first QR code image to the PDF
 					pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-					pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+					pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 					// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-					pdf.SetFont("Arial", "", 9)
-					pdf.Text(10, 75, text1)
-					pdf.Text(10, 82, "ICCID: "+iccid1)
+					pdf.SetFont("Arial", "", 8)
+					pdf.Text(20, 55, text1)
+					pdf.Text(20, 62, "ICCID: "+iccid1)
 
 					// Add second QR code image to the PDF
 					pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-					pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+					pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 					// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-					pdf.Text(110, 75, text2)
-					pdf.Text(110, 82, "ICCID: "+iccid2)
+					pdf.Text(115, 55, text2)
+					pdf.Text(115, 62, "ICCID: "+iccid2)
 
 					// Add third QR code image to the PDF
 					pdf.RegisterImageOptionsReader(text3, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader3)
-					pdf.ImageOptions(text3, 20, 90, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+					pdf.ImageOptions(text3, 30, 70, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 					// Print the third 'Lpa' and 'ICCID' strings below the third QR code
-					pdf.Text(10, 151, text3)
-					pdf.Text(10, 158, "ICCID: "+iccid3)
+					pdf.Text(20, 111, text3)
+					pdf.Text(20, 118, "ICCID: "+iccid3)
 				}
 			} else {
 				// Only two records left, add them to the PDF
@@ -733,20 +735,20 @@ func main() {
 
 				// Add first QR code image to the PDF
 				pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-				pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+				pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 				// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-				pdf.SetFont("Arial", "", 9)
-				pdf.Text(10, 75, text1)
-				pdf.Text(10, 82, "ICCID: "+iccid1)
+				pdf.SetFont("Arial", "", 8)
+				pdf.Text(20, 55, text1)
+				pdf.Text(20, 62, "ICCID: "+iccid1)
 
 				// Add second QR code image to the PDF
 				pdf.RegisterImageOptionsReader(text2, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader2)
-				pdf.ImageOptions(text2, 120, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+				pdf.ImageOptions(text2, 125, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 				// Print the second 'Lpa' and 'ICCID' strings below the second QR code
-				pdf.Text(110, 75, text2)
-				pdf.Text(110, 82, "ICCID: "+iccid2)
+				pdf.Text(115, 55, text2)
+				pdf.Text(115, 62, "ICCID: "+iccid2)
 			}
 		} else {
 			// Only one record left, add it to the PDF
@@ -764,12 +766,12 @@ func main() {
 
 			// Add first QR code image to the PDF
 			pdf.RegisterImageOptionsReader(text1, gofpdf.ImageOptions{ImageType: "png"}, qrCodeReader1)
-			pdf.ImageOptions(text1, 20, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+			pdf.ImageOptions(text1, 30, 14, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
 
 			// Print the first 'Lpa' and 'ICCID' strings below the first QR code
-			pdf.SetFont("Arial", "", 9)
-			pdf.Text(10, 75, text1)
-			pdf.Text(10, 82, "ICCID: "+iccid1)
+			pdf.SetFont("Arial", "", 8)
+			pdf.Text(20, 55, text1)
+			pdf.Text(20, 62, "ICCID: "+iccid1)
 		}
 	}
 
