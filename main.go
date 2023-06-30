@@ -6,8 +6,10 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"time" //TEMP
 
+	"github.com/cheggaaa/pb/v3" //PROGRESS BAR
 	"github.com/jung-kurt/gofpdf"
 	qr "github.com/skip2/go-qrcode"
 )
@@ -43,6 +45,10 @@ func main() {
 	// Load watermark image
 	watermarkPath := "Workz_Logo_2022-Blue-short.png"
 	pdf.RegisterImageOptions(watermarkPath, gofpdf.ImageOptions{ImageType: "png"})
+
+	// Create a progress bar
+	bar := pb.StartNew(len(records) / 10)
+	bar.SetWidth(80)
 
 	// Generate QR codes and add to the PDF
 	for i := 1; i < len(records); i += 10 {
@@ -773,20 +779,36 @@ func main() {
 			pdf.Text(20, 55, text1)
 			pdf.Text(20, 62, "ICCID: "+iccid1)
 		}
+
+		// Increment the progress bar
+		bar.Increment()
+
 	}
 
-	// Save the PDF file
-	outputPath := "output.pdf"
+	// Finish the progress bar
+	bar.Finish()
+
+	// Save the PDF document
+	dir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	outputPath := filepath.Join(dir, "output.pdf")
 	err = pdf.OutputFileAndClose(outputPath)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("QR codes generated and saved to %s\n", outputPath)
+	fmt.Printf("\nQR codes generated and saved to %s\n", outputPath)
 
-	// calculate to exe time TEMP
+	// calculate time TEMP
 	elapsed := time.Since(start)
-	fmt.Printf("TEST-BENCHMARKS took %s", elapsed)
+	fmt.Printf("Total Time Taken: %s\n", elapsed)
+
+	// Wait for user input before exiting..this is just so that the app may not crash before displaying the Total time taken and pdf save location
+	fmt.Println("Press Enter to exit...")
+	fmt.Scanln()
 }
 
 // Helper function to find the index of a column in the header row
