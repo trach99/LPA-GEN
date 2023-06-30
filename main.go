@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strconv"
 	"time" //TEMP
 
 	"github.com/cheggaaa/pb/v3" //PROGRESS BAR
@@ -63,8 +64,71 @@ func main() {
 		pagelength += 1
 	}
 
+	pagelength += 1 //Due to Cover Page
+
+	//--------------------------------------------------------------COVER PAGE--------------------------------------------------------------------//
+	// Add the cover page with the table
+	pdf.AddPage()
+
+	// Add watermark image
+	pdf.SetAlpha(1, "Multiply")
+	pdf.ImageOptions(watermarkPath, 8, 0, 0, 0, false, gofpdf.ImageOptions{ImageType: "png"}, 0, "")
+
+	// Reset alpha settings
+	pdf.SetAlpha(1.0, "")
+
+	// Set font and font size for the cover page
+	pdf.SetFont("Arial", "B", 16)
+
+	pdf.SetY(30) // Since the header initially was aligned on the top
+
+	// Add header text
+	headerText := customer + " eSIM RSP - QR Codes"
+	pdf.CellFormat(0, 20, headerText, "", 1, "C", false, 0, "")
+
+	pdf.SetLeftMargin(26) //Since the table initially was getting left aligned
+
+	// Set font size for the table
+	//pdf.SetFont("Arial", "B", 12)
+	pdf.SetFont("Arial", "", 12)
+
+	// Add additional table content
+	pdf.CellFormat(80, 10, "Customer", "1", 0, "L", false, 0, "")
+	pdf.CellFormat(80, 10, customer, "1", 1, "L", false, 0, "")
+
+	// Add additional table content
+	pdf.CellFormat(80, 10, "Profile Type", "1", 0, "L", false, 0, "")
+	pdf.CellFormat(80, 10, profileType, "1", 1, "L", false, 0, "")
+
+	// Fetch the first and last ICCID from the CSV records
+	firstICCID := records[1][findColumnIndex(records[0], "ICCID")]
+	lastICCID := records[len(records)-1][findColumnIndex(records[0], "ICCID")]
+
+	// Add additional table content
+	pdf.CellFormat(80, 10, "Start ICCID", "1", 0, "L", false, 0, "")
+	pdf.CellFormat(80, 10, firstICCID, "1", 1, "L", false, 0, "")
+	pdf.CellFormat(80, 10, "End ICCID", "1", 0, "L", false, 0, "")
+	pdf.CellFormat(80, 10, lastICCID, "1", 1, "L", false, 0, "")
+
+	// Calculate the quantity of records in the CSV
+	quantity := len(records) - 1                    // Subtract 1 to exclude the header row
+	quantityStr := formatNumberWithCommas(quantity) //commas for the 1000's :-)
+	pdf.CellFormat(80, 10, "Quantity", "1", 0, "L", false, 0, "")
+	pdf.CellFormat(80, 10, fmt.Sprint(quantityStr), "1", 1, "L", false, 0, "")
+
+	// Get the current date
+	currentDate := time.Now().Format("02-Jan-2006")
+	pdf.CellFormat(80, 10, "Release Date", "1", 0, "L", false, 0, "")
+	pdf.CellFormat(80, 10, currentDate, "1", 1, "L", false, 0, "")
+
+	// Add page number footer text
+	pdf.SetFont("Arial", "I", 8)
+	pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
+
+	//--------------------------------------------------------------COVER PAGE--------------------------------------------------------------------//
+
 	// Create a progress bar
-	bar := pb.StartNew(pagelength)
+	bar := pb.StartNew(pagelength - 1) //need 100% :-)
 	bar.SetWidth(80)
 
 	// Generate QR codes and add to the PDF
@@ -866,6 +930,23 @@ func main() {
 	// Wait for user input before exiting..this is just so that the app may not crash before displaying the Total time taken and pdf save location
 	fmt.Println("Press Enter to exit...")
 	fmt.Scanln()
+}
+
+// Helper function to format a number with commas
+func formatNumberWithCommas(num int) string {
+	numberString := strconv.Itoa(num)
+	n := len(numberString)
+	if n <= 3 {
+		return numberString
+	}
+	var result []byte
+	for i := 0; i < n; i++ {
+		if i > 0 && (n-i)%3 == 0 {
+			result = append(result, ',')
+		}
+		result = append(result, numberString[i])
+	}
+	return string(result)
 }
 
 // Helper function to find the index of a column in the header row
