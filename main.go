@@ -21,6 +21,16 @@ func main() {
 	fmt.Print("Enter the path to the CSV file: ")
 	fmt.Scanln(&csvFilePath)
 
+	// Get Customer input from user
+	var customer string
+	fmt.Print("Enter the Customer name: ")
+	fmt.Scanln(&customer)
+
+	// Get Profile Type input from user
+	var profileType string
+	fmt.Print("Enter the Profile Type: ")
+	fmt.Scanln(&profileType)
+
 	//RUNTIME measure TEMP
 	start := time.Now()
 
@@ -46,8 +56,15 @@ func main() {
 	watermarkPath := "Workz_Logo_2022-Blue-short.png"
 	pdf.RegisterImageOptions(watermarkPath, gofpdf.ImageOptions{ImageType: "png"})
 
+	pagelength := (len(records) / 10)
+
+	//Check if page nos. is not a multiple of 10
+	if (pagelength % 10) != 0 {
+		pagelength += 1
+	}
+
 	// Create a progress bar
-	bar := pb.StartNew(len(records) / 10)
+	bar := pb.StartNew(pagelength)
 	bar.SetWidth(80)
 
 	// Generate QR codes and add to the PDF
@@ -288,6 +305,10 @@ func main() {
 											pdf.Text(115, 279, text10)
 											pdf.Text(115, 286, "ICCID: "+iccid10)
 
+											// Add page number footer text
+											pdf.SetFont("Arial", "I", 8)
+											pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
+
 										} else {
 											// Only nine records left, add them to the PDF
 											pdf.AddPage()
@@ -374,6 +395,10 @@ func main() {
 											pdf.Text(20, 279, text9)
 											pdf.Text(20, 286, "ICCID: "+iccid9)
 
+											// Add page number footer text
+											pdf.SetFont("Arial", "I", 8)
+											pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
+
 										}
 									} else {
 										// Only eight records left, add them to the PDF
@@ -452,6 +477,10 @@ func main() {
 										// Print the eighth 'Lpa' and 'ICCID' strings below the eighth QR code
 										pdf.Text(115, 223, text8)
 										pdf.Text(115, 230, "ICCID: "+iccid8)
+
+										// Add page number footer text
+										pdf.SetFont("Arial", "I", 8)
+										pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
 									}
 								} else {
 									// Only seven records left, add them to the PDF
@@ -522,6 +551,10 @@ func main() {
 									// Print the seventh 'Lpa' and 'ICCID' strings below the seventh QR code
 									pdf.Text(20, 223, text7)
 									pdf.Text(20, 230, "ICCID: "+iccid7)
+
+									// Add page number footer text
+									pdf.SetFont("Arial", "I", 8)
+									pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
 								}
 							} else {
 								// Only six records left, add them to the PDF
@@ -584,6 +617,10 @@ func main() {
 								// Print the sixth 'Lpa' and 'ICCID' strings below the sixth QR code
 								pdf.Text(115, 167, text6)
 								pdf.Text(115, 174, "ICCID: "+iccid6)
+
+								// Add page number footer text
+								pdf.SetFont("Arial", "I", 8)
+								pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
 							}
 						} else {
 							// Only five records left, add them to the PDF
@@ -638,6 +675,10 @@ func main() {
 							// Print the fifth 'Lpa' and 'ICCID' strings below the fifth QR code
 							pdf.Text(20, 167, text5)
 							pdf.Text(20, 174, "ICCID: "+iccid5)
+
+							// Add page number footer text
+							pdf.SetFont("Arial", "I", 8)
+							pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
 						}
 					} else {
 						// Only four records left, add them to the PDF
@@ -685,6 +726,10 @@ func main() {
 						pdf.Text(115, 111, text4)
 						pdf.Text(115, 118, "ICCID: "+iccid4)
 
+						// Add page number footer text
+						pdf.SetFont("Arial", "I", 8)
+						pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
+
 					}
 				} else {
 					// Only three records left, add them to the PDF
@@ -724,6 +769,10 @@ func main() {
 					// Print the third 'Lpa' and 'ICCID' strings below the third QR code
 					pdf.Text(20, 111, text3)
 					pdf.Text(20, 118, "ICCID: "+iccid3)
+
+					// Add page number footer text
+					pdf.SetFont("Arial", "I", 8)
+					pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
 				}
 			} else {
 				// Only two records left, add them to the PDF
@@ -755,6 +804,10 @@ func main() {
 				// Print the second 'Lpa' and 'ICCID' strings below the second QR code
 				pdf.Text(115, 55, text2)
 				pdf.Text(115, 62, "ICCID: "+iccid2)
+
+				// Add page number footer text
+				pdf.SetFont("Arial", "I", 8)
+				pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
 			}
 		} else {
 			// Only one record left, add it to the PDF
@@ -778,6 +831,10 @@ func main() {
 			pdf.SetFont("Arial", "", 8)
 			pdf.Text(20, 55, text1)
 			pdf.Text(20, 62, "ICCID: "+iccid1)
+
+			// Add page number footer text
+			pdf.SetFont("Arial", "I", 8)
+			pdf.Text(90, 295, fmt.Sprintf("Page %d of %d", pdf.PageNo(), pagelength))
 		}
 
 		// Increment the progress bar
