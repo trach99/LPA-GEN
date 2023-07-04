@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/csv"
 	"fmt"
@@ -8,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"time" //TEMP
 
 	"github.com/cheggaaa/pb/v3" //PROGRESS BAR
@@ -20,17 +22,17 @@ func main() {
 	// Get CSV file path from user
 	var csvFilePath string
 	fmt.Print("Enter the path to the CSV file: ")
-	fmt.Scanln(&csvFilePath)
+	csvFilePath = getUserInput()
 
 	// Get Customer input from user
 	var customer string
 	fmt.Print("Enter the Customer name: ")
-	fmt.Scanln(&customer)
+	customer = getUserInput()
 
 	// Get Profile Type input from user
 	var profileType string
 	fmt.Print("Enter the Profile Type: ")
-	fmt.Scanln(&profileType)
+	profileType = getUserInput()
 
 	//RUNTIME measure TEMP
 	start := time.Now()
@@ -947,6 +949,16 @@ func formatNumberWithCommas(num int) string {
 		result = append(result, numberString[i])
 	}
 	return string(result)
+}
+
+// Helper function to get user input
+func getUserInput() string {
+	reader := bufio.NewReader(os.Stdin)
+	input, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
+	}
+	return strings.TrimSpace(input)
 }
 
 // Helper function to find the index of a column in the header row
